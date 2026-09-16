@@ -1,0 +1,91 @@
+{
+  "source": "E:/work/gitlab/BFYGameFrame_encode_hwApk",
+  "toolDir": ".",
+  "target": "../../",
+
+  "name": "BFYGameFrame_encode_hwApk",
+  "description": "华为 APK 编码框架 (AGC + QG游戏框架)",
+
+  "versionDetection": {
+    "type": "cocosPackageJson",
+    "field": "version"
+  },
+  "defaultVersion": "3.x",
+
+  "rules": {
+    "2.x": [
+      {
+        "name": "核心框架 (2.x)",
+        "source": "2.x/assets/bfyGameFrame",
+        "target": "assets/bfyGameFrame"
+      },
+      {
+        "name": "第三方库 埋点SDK (2.x)",
+        "source": "2.x/assets/libs",
+        "target": "assets/libs"
+      },
+      {
+        "name": "BFY资源 (2.x)",
+        "source": "2.x/assets/resources/bfy",
+        "target": "assets/resources/bfy"
+      },
+      {
+        "name": "华为AGC原生构建 (2.x)",
+        "source": "2.x/build",
+        "target": "build",
+        "exclude": ["mipmap-*"],
+        "linePreserve": {
+          "fileTypes": [".java", ".gradle"],
+          "patterns": [
+            "import com\\.[a-zA-Z0-9_]+\\.[a-zA-Z0-9_]+\\.[a-zA-Z0-9_]+\\.HUAWEI\\.R;",
+            "namespace\\s+[\"']com\\.[a-zA-Z0-9_.]+\\.HUAWEI[\"']"
+          ]
+        }
+      },
+      {
+        "name": "QG游戏框架",
+        "source": "qgGameFrame",
+        "target": "assets/qgGameFrame",
+        "preserveExisting": ["platformMode/instGameConfig.js"]
+      }
+    ],
+    "3.x": [
+      {
+        "name": "核心框架 (3.x)",
+        "source": "3.x/assets/bfyGameFrame",
+        "target": "assets/bfyGameFrame"
+      },
+      {
+        "name": "第三方库 埋点SDK (3.x)",
+        "source": "3.x/assets/libs",
+        "target": "assets/libs"
+      },
+      {
+        "name": "BFY资源 (3.x)",
+        "source": "3.x/assets/resources/bfy",
+        "target": "assets/resources/bfy"
+      },
+      {
+        "name": "华为AGC构建配置 (3.x)",
+        "source": "3.x/build",
+        "target": "build"
+      },
+      {
+        "name": "华为AGC原生代码 (3.x)",
+        "source": "3.x/native",
+        "target": "native",
+        "exclude": [".gradle", "mipmap-*"],
+        "linePreserve": {
+          "fileTypes": [".java"],
+          "patterns": ["import com\\.[a-zA-Z0-9_]+\\.[a-zA-Z0-9_]+\\.[a-zA-Z0-9_]+\\.HUAWEI\\.R;"]
+        }
+      },
+      {
+        "name": "QG游戏框架",
+        "source": "qgGameFrame",
+        "target": "assets/qgGameFrame",
+        "preserveExisting": ["platformMode/instGameConfig.js"]
+      }
+    ]
+  }
+}

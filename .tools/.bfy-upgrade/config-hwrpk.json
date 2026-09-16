@@ -1,0 +1,53 @@
+{
+  "source": "E:/work/gitlab/HwRuntimeEncode",
+  "toolDir": ".",
+  "target": "../../",
+
+  "name": "HwRuntimeEncode",
+  "description": "华为快游戏 Runtime 编码框架",
+
+  "versionDetection": {
+    "type": "cocosPackageJson",
+    "field": "version"
+  },
+  "defaultVersion": "3.x",
+
+  "rules": {
+    "2.x": [
+      {
+        "name": "快游戏SDK（共享）",
+        "source": "bfyGameFrame/sdk",
+        "target": "assets/bfyGameFrame/sdk",
+        "preserveExisting": ["**/gameConfig.js"]
+      },
+      {
+        "name": "BFY核心框架 (2.x)",
+        "source": "hwRuntime2.X_encode/assets/bfyGameFrame",
+        "target": "assets/bfyGameFrame"
+      },
+      {
+        "name": "BFY资源 (2.x)",
+        "source": "hwRuntime2.X_encode/assets/resources/bfy",
+        "target": "assets/resources/bfy"
+      }
+    ],
+    "3.x": [
+      {
+        "name": "快游戏SDK（共享）",
+        "source": "bfyGameFrame/sdk",
+        "target": "assets/bfyGameFrame/sdk",
+        "preserveExisting": ["**/gameConfig.js"]
+      },
+      {
+        "name": "BFY核心框架 (3.x)",
+        "source": "hwRuntime3.X_encode/assets/bfyGameFrame",
+        "target": "assets/bfyGameFrame"
+      },
+      {
+        "name": "BFY资源 (3.x)",
+        "source": "hwRuntime3.X_encode/assets/resources/bfy",
+        "target": "assets/resources/bfy"
+      }
+    ]
+  }
+}
